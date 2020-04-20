@@ -9,14 +9,17 @@ export default {
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: authResult => {
-          this.$store.dispatch("setUser", authResult.user)
-          this.$router.push("/")
-          return false
-        },
+          this.$store.dispatch("setUser", authResult.user);
+          this.$router.push("/");
+          return false;
+        }
       },
-      signInOptions: [this.$firebase.auth.GoogleAuthProvider.PROVIDER_ID, this.$firebase.auth.EmailAuthProvider.PROVIDER_ID],
-    }
-    this.$firebaseui.start("#firebaseui-auth-container", uiConfig)
-  },
-}
+      signInOptions: [
+        this.$firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        this.$firebase.auth.EmailAuthProvider.PROVIDER_ID
+      ]
+    };
+    this.$firebaseui.start("#firebaseui-auth-container", uiConfig);
+  }
+};
 </script>

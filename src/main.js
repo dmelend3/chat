@@ -7,10 +7,9 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 import "./plugins/firebase";
 
-
 Vue.config.productionTip = false;
 
-Vue.use(firestorePlugin)
+Vue.use(firestorePlugin);
 
 new Vue({
   router,

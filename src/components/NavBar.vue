@@ -1,7 +1,11 @@
 <template>
   <v-app-bar app color="primary" dark clipped-left>
     <v-toolbar-title>
-      <v-btn text class="text-none font-weight-light headline" @click="$router.push('/')">
+      <v-btn
+        text
+        class="text-none font-weight-light headline"
+        @click="$router.push('/')"
+      >
         <span>the</span>
         <span class="font-weight-regular">Chat</span>
       </v-btn>
@@ -34,21 +38,21 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'NavBar',
+  name: "NavBar",
   computed: {
     ...mapGetters({
-      user: 'getUser',
-    }),
+      user: "getUser"
+    })
   },
   methods: {
     logOut() {
-      this.$firebase.auth().signOut()
-      this.setUser('')
-      this.$router.push('/login')
+      this.$firebase.auth().signOut();
+      this.setUser("");
+      this.$router.push("/login");
     },
-    ...mapActions(['setUser']),
-  },
-}
+    ...mapActions(["setUser"])
+  }
+};
 </script>

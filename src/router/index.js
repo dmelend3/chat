@@ -32,7 +32,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  to.name === 'Login' || store.getters.getUser ? next() : next('/login')
-})
+  to.name === "Login" || store.getters.getUser ? next() : next("/login");
+});
 
 export default router;

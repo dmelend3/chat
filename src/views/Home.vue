@@ -11,7 +11,11 @@
     <v-card-text>
       <v-list>
         <v-subheader>Rooms Available</v-subheader>
-        <v-list-item v-for="room in rooms" :key="room.id" :to="`room/${room.id}`">
+        <v-list-item
+          v-for="room in rooms"
+          :key="room.id"
+          :to="`room/${room.id}`"
+        >
           <v-list-item-content>
             <v-list-item-title v-text="room.name"></v-list-item-title>
           </v-list-item-content>
@@ -22,7 +26,7 @@
 </template>
 
 <script>
-import { db } from "../plugins/firebase"
+import { db } from "../plugins/firebase";
 
 export default {
   name: "Home",
@@ -32,7 +36,7 @@ export default {
       rooms: []
     };
   },
-  mounted () {
+  mounted() {
     this.bind();
   },
   methods: {
@@ -41,12 +45,12 @@ export default {
         await db.collection("rooms").add({
           name: this.newRoom,
           createdAt: new Date()
-        })
-        this.newRoom = ""
+        });
+        this.newRoom = "";
       }
     },
-    async bind(){
-      await this.$bind("rooms", db.collection("rooms").orderBy("createdAt"))
+    async bind() {
+      await this.$bind("rooms", db.collection("rooms").orderBy("createdAt"));
     }
   }
 };
