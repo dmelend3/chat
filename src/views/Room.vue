@@ -19,7 +19,7 @@
     <v-container>
       <div v-for="message in messages" :key="message.id">
         <p class="overline">
-          {{ message.author }} on {{ message.createdAt.toLocaleString() }}
+          {{ message.author }} on {{ message.createdAt.toDate().toLocaleString() }}
         </p>
         <p>{{ message.message }}</p>
       </div>
